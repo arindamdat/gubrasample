@@ -1,10 +1,7 @@
-pipeline {
-  agent any
-  stages {
-    stage('Install Node Js') {
-      steps {
-        sh 'apt-get install nodejs'
-      }
+podTemplate(label: 'mypod') {
+    node('mypod') {
+        stage('Run shell') {
+            sh 'echo hello world'
+        }
     }
-  }
 }
